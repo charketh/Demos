@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/png" href="./icon512.png">
+    <link rel="stylesheet" href="./tracker.css">
+    <link rel="manifest" href="./manifest.json">
+    <title>喝水打卡</title>
+    <meta name="application-name" content="喝水打卡">
+  </head>
+  <body>
+    <div id="app">
+      <h1>💧 喝水打卡</h1>
+
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-label">今日喝水</span>
+          <span class="stat-value" id="today-count">0</span>
+          <span class="stat-unit">次</span>
+        </div>
+      </div>
+
+      <button id="check-in-btn" class="check-in-btn">
+        <span class="btn-icon">💧</span>
+        <span class="btn-text">打卡喝水</span>
+      </button>
+
+      <div class="records-section">
+        <h2>打卡记录</h2>
+        <div id="records-list" class="records-list">
+          <p class="empty-message">暂无打卡记录</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="./tracker.js"></script>
+    <script>
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js', { scope: './' });
+      }
+    </script>
+  </body>
+</html>
